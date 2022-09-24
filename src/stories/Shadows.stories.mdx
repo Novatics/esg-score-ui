@@ -1,0 +1,79 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Box } from '@mui/material'
+
+<Meta title="Shadows" component={Box} />
+
+# Shadows
+
+export const Template = args => (
+  <Typography mb={2} {...args}>
+    Welcome Protexxa
+  </Typography>
+)
+
+<Canvas>
+  <Story name="Variants">
+    <Box display="flex" flexDirection="row" gap={4}>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        width="150px"
+        height="150px"
+        sx={{
+          boxShadow: theme => theme.shadows[1],
+        }}
+      >
+        Shadow 01
+      </Box>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        width="150px"
+        height="150px"
+        sx={{
+          boxShadow: theme => theme.shadows[2],
+        }}
+      >
+        Shadow 02
+      </Box>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        width="150px"
+        height="150px"
+        sx={{
+          boxShadow: theme => theme.shadows[3],
+        }}
+      >
+        Shadow 03
+      </Box>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        width="150px"
+        height="150px"
+        sx={{
+          boxShadow: theme => theme.shadows[4],
+        }}
+      >
+        Shadow 04
+      </Box>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        width="150px"
+        height="150px"
+        sx={{
+          boxShadow: theme => theme.shadows[5],
+        }}
+      >
+        Shadow 05
+      </Box>
+    </Box>
+  </Story>
+</Canvas>

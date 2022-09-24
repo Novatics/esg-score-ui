@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Grid, Box } from '@mui/material'
+import Card, { CardBordered } from './index.tsx'
+
+<Meta title="Card" component={Card} />
+
+# Card
+
+## Default
+
+<Canvas>
+  <Story name="Variants">
+    <Grid container gap={2}>
+      <Grid item>
+        <Card>
+          <Box p={3}>Card</Box>
+        </Card>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Bordered
+
+<Canvas>
+  <Story name="Bordered">
+    <Grid container gap={2}>
+      <Grid item>
+        <CardBordered elevation={0}>Elevation 0</CardBordered>
+      </Grid>
+      <Grid item>
+        <CardBordered elevation={1}>Elevation 1</CardBordered>
+      </Grid>
+      <Grid item>
+        <CardBordered elevation={2}>Elevation 2</CardBordered>
+      </Grid>
+      <Grid item>
+        <CardBordered elevation={3}>Elevation 3</CardBordered>
+      </Grid>
+      <Grid item>
+        <CardBordered elevation={4}>Elevation 4</CardBordered>
+      </Grid>
+      <Grid item>
+        <CardBordered elevation={5}>Elevation 5</CardBordered>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>

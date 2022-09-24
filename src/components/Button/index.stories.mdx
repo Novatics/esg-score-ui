@@ -1,0 +1,150 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Box } from '@mui/material'
+import Button from './index.tsx'
+import DeleteIcon from '@mui/icons-material/Delete'
+import SendIcon from '@mui/icons-material/Send'
+
+<Meta title="Button" component={Button} />
+
+# Button
+
+The Button comes with three variants: text (default), contained, and outlined.
+
+## Basic Button
+
+<Canvas>
+  <Story name="basic">
+    <Box display="flex" gap={2}>
+      <Button variant="text">Text</Button>
+      <Button variant="contained">Contained</Button>
+      <Button variant="outlined">Outlined</Button>
+    </Box>
+  </Story>
+</Canvas>
+
+## Text Button
+
+<Canvas>
+  <Story name="text">
+    <Box display="flex" gap={2}>
+      <Button>Primary</Button>
+      <Button disabled>Disabled</Button>
+      <Button href="#text-buttons">Link</Button>
+    </Box>
+  </Story>
+</Canvas>
+
+## Contained Button
+
+<Canvas>
+  <Story name="contained">
+    <Box display="flex" gap={2}>
+      <Button variant="contained">Contained</Button>
+      <Button variant="contained" disabled>
+        Disabled
+      </Button>
+      <Button variant="contained" href="#contained-buttons">
+        Link
+      </Button>
+    </Box>
+  </Story>
+</Canvas>
+
+## Elevation Button
+
+<Canvas>
+  <Story name="elevation">
+    <Box display="flex" gap={2}>
+      <Button variant="contained" disableElevation>
+        Disable elevation
+      </Button>
+    </Box>
+  </Story>
+</Canvas>
+
+## Outlined Button
+
+<Canvas>
+  <Story name="outlined">
+    <Box display="flex" gap={2}>
+      <Button variant="outlined">Primary</Button>
+      <Button variant="outlined" disabled>
+        Disabled
+      </Button>
+      <Button variant="outlined" href="#outlined-buttons">
+        Link
+      </Button>
+    </Box>
+  </Story>
+</Canvas>
+
+## Color Button
+
+<Canvas>
+  <Story name="color">
+    <Box display="flex" gap={2}>
+      <Button color="secondary">Secondary</Button>
+      <Button variant="contained" color="success">
+        Success
+      </Button>
+      <Button variant="outlined" color="error">
+        Error
+      </Button>
+    </Box>
+  </Story>
+</Canvas>
+
+## Size Button
+
+<Canvas>
+  <Story name="size">
+    <Box display="flex" gap={2}>
+      <Box sx={{ '& button': { m: 1 } }}>
+        <div>
+          <Button size="small">Small</Button>
+          <Button size="medium">Medium</Button>
+          <Button size="large">Large</Button>
+        </div>
+        <div>
+          <Button variant="outlined" size="small">
+            Small
+          </Button>
+          <Button variant="outlined" size="medium">
+            Medium
+          </Button>
+          <Button variant="outlined" size="large">
+            Large
+          </Button>
+        </div>
+        <div>
+          <Button variant="contained" size="small">
+            Small
+          </Button>
+          <Button variant="contained" size="medium">
+            Medium
+          </Button>
+          <Button variant="contained" size="large">
+            Large
+          </Button>
+        </div>
+      </Box>
+    </Box>
+  </Story>
+</Canvas>
+
+## Icon Button
+
+<Canvas>
+  <Story name="icon">
+    <Box display="flex" gap={2}>
+      <Button variant="outlined" startIcon={<DeleteIcon />}>
+        Delete
+      </Button>
+      <Button variant="contained" endIcon={<SendIcon />}>
+        Send
+      </Button>
+    </Box>
+  </Story>
+</Canvas>
+
+<ArgsTable to={Button} />
