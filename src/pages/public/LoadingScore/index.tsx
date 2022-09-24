@@ -1,46 +1,36 @@
 /* eslint-disable  */
 import { useEffect, useState } from 'react'
-import CheckIcon from '@mui/icons-material/Check'
 import { CircleProgress } from 'react-gradient-progress'
-import { useNavigate } from 'react-router-dom'
-import invariant from 'tiny-invariant'
 import Box from 'components/Box'
 import Card from 'components/Card'
 import CardActions from 'components/CardActions'
 import CardContent from 'components/CardContent'
 import Typography from 'components/Typography'
-import { useScoreByEmail } from 'hooks/score.hooks'
-import globalStore from 'store'
-import { Container, BackgroundMap, Loader } from './styles'
+import { Container, BackgroundMap } from './styles'
+import { useNavigate } from 'react-router-dom';
 
 const STEP = 0.01
 export default function LoadingScore() {
-  const navigate = useNavigate()
+  const [scanPercentage, setScanPercentage] = useState(0);
+  const navigate = useNavigate();
+  let loadingInterval;
+  let currentProgress = 0;
 
-  const [score, fixList] = useScoreByEmail()
-  const [scanPercentage, setScanPercentage] = useState(0)
-  let loadingInterval
-  let currentProgress = 0
   useEffect(() => {
     loadingInterval = setInterval(() => {
       currentProgress = STEP + currentProgress
-      if (!score) {
-        setScanPercentage(
-          Math.trunc(Math.round((Math.atan(currentProgress) / (Math.PI / 2)) * 100 * 1000) / 1000)
-        )
+      setScanPercentage(
+        Math.trunc(Math.round((Math.atan(currentProgress) / (Math.PI / 2)) * 100 * 1000) / 1000)
+      )
+
+      if (currentProgress === 4) {
+        console.log('oi')
       }
-    }, 100)
+    }, 10)
     return () => {
       clearInterval(loadingInterval)
     }
-  }, [score])
-  useEffect(() => {
-    // if (score && fixList) {
-    //   clearInterval(loadingInterval)
-    //   fetchUserScore()
-    //   setScanPercentage(100)
-    // }
-  }, [])
+  }, []);
 
   return (
     <Container>
@@ -83,23 +73,11 @@ export default function LoadingScore() {
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
-              }}
-            >
-              <CheckIcon fontSize="small" />
-              <Typography variant="body1" sx={{ color: 'neutral.low.medium', marginLeft: 1 }}>
-                Collect your data
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
                 marginTop: 2,
               }}
             >
               <Typography variant="body1" sx={{ color: 'neutral.low.medium', marginLeft: 1 }}>
-                Running your first scan
+                Calculando seu score...
               </Typography>
             </Box>
           </Box>
