@@ -18,21 +18,21 @@ const testimonialsData = [
     subtitle: '',
     avatar: JaneAvatar,
     description:
-      'We were shocked to learn that everyone on the team had private information for sale on the dark web. Protexxa helped us tighten up our security big time.',
+      'We were shocked to learn that everyone on the team had private information for sale on the dark web. helped us tighten up our security big time.',
   },
   {
     name: 'Steve',
     avatar: SteveAvatar,
     subtitle: '',
     description:
-      'My company was hacked and we had 45 minutes to pay the ransom. I didn’t know who to call, so I paid. Now that we are Protexxa customers, we have playbooks and someone to call if it ever happens again… which I hope it won’t! ',
+      'My company was hacked and we had 45 minutes to pay the ransom. I didn’t know who to call, so I paid. Now that we are customers, we have playbooks and someone to call if it ever happens again… which I hope it won’t! ',
   },
   {
     name: 'Mohamed',
     avatar: MohamedAvatar,
     subtitle: '',
     description:
-      'The cybersecurity training provided by Protexxa has changed the way we work at our company. Security is now embedded in all processes.',
+      'The cybersecurity training provided by has changed the way we work at our company. Security is now embedded in all processes.',
   },
 ]
 export default function TestimonialsSection() {

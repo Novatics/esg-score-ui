@@ -14,18 +14,6 @@ export default function OurServicesSection() {
   const cards = [
     {
       key: '1',
-      title: 'Protexxa Defender',
-      description:
-        'Take control and reduce cyber vulnerabilities with our AI-powered assessment and remediation solution.',
-      image: CyberSecurityScan,
-      buttonText: 'Learn more',
-      buttonAction: () => {
-        window.open('https://calendly.com/protexxa', '_blank')
-      },
-    },
-
-    {
-      key: '2',
       title: 'Consulting',
       description:
         'Strengthen cyber capabilities with strategic consulting, control testing and interactive tabletop exercises.',
@@ -37,7 +25,7 @@ export default function OurServicesSection() {
     },
 
     {
-      key: '3',
+      key: '2',
       title: 'Training',
       description:
         'Accelerate cyber confidence across your organization. Executives are targeted 12x more than employees. ',
