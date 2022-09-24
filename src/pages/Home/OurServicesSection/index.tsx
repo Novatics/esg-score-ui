@@ -2,7 +2,6 @@
 import { useNavigate } from 'react-router-dom'
 import Slider from 'react-slick'
 import Consulting from 'assets/images/ConsultingIllustration.png'
-import CyberSecurityScan from 'assets/images/CyberSecurityIllustration.png'
 import Training from 'assets/images/TrainingIllustration.png'
 import Box from 'components/Box'
 import Container from 'components/Container'
