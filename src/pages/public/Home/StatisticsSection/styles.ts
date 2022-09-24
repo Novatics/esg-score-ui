@@ -8,7 +8,7 @@ export const BackgroundBox = styled('section')`
   background-position: 50% 50%;
   background-size: 100vw auto;
   width: 100%;
-  height: 60vh;
+  height: 50vh;
 `
 
 export const Container = styled(MuiContainer)`

@@ -6,18 +6,21 @@ import StaySafeWithProtexxaSection from './StaySafeWithProtexxaSection'
 import StepperSection from './StepperSection'
 import TestimonialsSection from './TestimonialsSection'
 import TrustedPartnersSection from './TrustedPartnersSection'
+import UserInput from './UserInput'
 
 const Home = () => {
   return (
     <>
       <Header />
       <StepperSection />
+      <UserInput />
+      <Footer /> 
+      {/*
       <StatisticsSection />
       <OurServicesSection />
       <TrustedPartnersSection />
       <TestimonialsSection />
-      <StaySafeWithProtexxaSection />
-      <Footer />
+      <StaySafeWithProtexxaSection /> */}
     </>
   )
 }

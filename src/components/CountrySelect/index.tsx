@@ -15,7 +15,7 @@ import {
 type TCountrySelectProps = {
   label: string
   value: string | null
-  onChange: (value: string | null) => void
+  onChange: any
   selectBy: 'name' | 'code'
   sx?: SxProps
 }
