@@ -32,6 +32,10 @@ export default function LoadingScore() {
     }
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => navigate('/dashboard'), 2000)
+  }, [navigate])
+
   return (
     <Container>
       <BackgroundMap />

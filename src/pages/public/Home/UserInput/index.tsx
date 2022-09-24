@@ -12,7 +12,7 @@ export default function UserInput() {
 
   const handleSubmit = () => {
     console.log('submit score...');
-    navigate('/dashboard');
+    navigate('/loadingscore');
   }; 
 
   return (
