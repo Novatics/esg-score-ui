@@ -1,10 +1,10 @@
 import { lazy } from 'react'
 import { BrowserRouter, Route, Routes as RouterRoutes } from 'react-router-dom'
 
-const Home = lazy(() => import('pages/public/Home'))
-const LoadingScore = lazy(() => import('pages/public/LoadingScore'))
-const UserDashboard = lazy(() => import('pages/public/Dashboard'))
-const NotFound = lazy(() => import('pages/common/NotFound'))
+const Home = lazy(() => import('pages/Home'))
+const LoadingScore = lazy(() => import('pages/LoadingScore'))
+const UserDashboard = lazy(() => import('pages/Dashboard'))
+const NotFound = lazy(() => import('pages/NotFound'))
 
 const Routes = () => {
   return (

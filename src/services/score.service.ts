@@ -1,13 +1,12 @@
-import { IScore } from 'models/score.model'
 import api from './api'
 
-export const get = async (): Promise<IScore> => {
-  const { data } = await api.get<IScore>('/score')
+export const get = async (): Promise<any> => {
+  const { data } = await api.get<any>('/score')
   return data
 }
 
-export const getCompanyScore = async (companyId): Promise<IScore> => {
-  const { data } = await api.get<IScore>(`/score/company/${companyId}`)
+export const getCompanyScore = async (companyId): Promise<any> => {
+  const { data } = await api.get<any>(`/score/company/${companyId}`)
   return data
 }
 

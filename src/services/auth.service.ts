@@ -1,10 +1,8 @@
 import { AxiosResponse } from 'axios'
-import { IRegister } from 'models/score.model'
-import { TSignUpForm } from 'models/user.model'
 import api from './api'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const register = (data: TSignUpForm): Promise<AxiosResponse> => {
+export const register = (data: any): Promise<AxiosResponse> => {
   const formData = new FormData()
   formData.append('fullname', data.fullname)
   if (data.company) formData.append('company', data.company)
@@ -43,7 +41,7 @@ export const updateSecondaryEmails = (secondaryEmails: Array<string>): Promise<A
   })
 }
 
-export const updateRegister = (data: TSignUpForm): Promise<AxiosResponse> => {
+export const updateRegister = (data: any): Promise<AxiosResponse> => {
   const formData = new FormData()
   formData.append('fullname', data.fullname)
   formData.append('gender', data.gender)
@@ -68,7 +66,7 @@ export const updateRegister = (data: TSignUpForm): Promise<AxiosResponse> => {
   })
 }
 
-export const getRegister = async (): Promise<IRegister> => {
+export const getRegister = async (): Promise<any> => {
   const { data } = await api.get('/register')
   return data
 }

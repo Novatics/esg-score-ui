@@ -1,6 +1,4 @@
 import { AxiosResponse } from 'axios'
-import { ICompanyStats, ICompanyData } from 'models/company.model'
-import { TCognitoUserAdmin } from 'models/user.model'
 import api from './api'
 
 export const isTokenValid = (token: string): Promise<AxiosResponse> => {
@@ -11,21 +9,21 @@ export const verifyUserCompanySignUp = (email: string, company: string): Promise
   return api.post('/invites/validate-invite', { email, company })
 }
 
-export const getCompany = async (): Promise<ICompanyData> => {
-  const { data } = await api.get<ICompanyData>('company')
+export const getCompany = async (): Promise<any> => {
+  const { data } = await api.get<any>('company')
   return data
 }
 
-export const getCompanyAdmins = async (): Promise<TCognitoUserAdmin[]> => {
-  const { data } = await api.get<TCognitoUserAdmin[]>('user/company')
+export const getCompanyAdmins = async (): Promise<any[]> => {
+  const { data } = await api.get<any>('user/company')
   return data
 }
-export const putCompany = async (changedData: Partial<ICompanyData>): Promise<ICompanyData> => {
-  const { data } = await api.put<ICompanyData>('company', changedData)
+export const putCompany = async (changedData: Partial<any>): Promise<any> => {
+  const { data } = await api.put<any>('company', changedData)
   return data
 }
-export const getCompanyStats = async (): Promise<ICompanyStats> => {
-  const { data } = await api.get<ICompanyStats>('company/stats')
+export const getCompanyStats = async (): Promise<any> => {
+  const { data } = await api.get<any>('company/stats')
   return data
 }
 
