@@ -9,7 +9,7 @@ const MAX_VALUE = 1000
 const HALF_CIRCLE = 50
 
 export default function ScoreIndicator() {
-  const score = 20;
+  const score = 420;
   const circleProgress = (score / MAX_VALUE) * HALF_CIRCLE
 
   const getTotalValue = (total: number) => {
@@ -20,10 +20,10 @@ export default function ScoreIndicator() {
   }
 
   return (
-    <Card sx={{ height: '362px' }}>
+    <Card sx={{ height: '100%' }}>
       <Box p={4} display="flex" justifyContent="space-between" flexDirection="row">
         <Typography variant="h5" color="primary.dark">
-          Score
+          ESG Personal Score
         </Typography>
       </Box>
       <Box display="flex" justifyContent="center">
