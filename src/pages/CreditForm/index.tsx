@@ -5,44 +5,14 @@ import Box from 'components/Box'
 import Button from 'components/Button'
 import Typography from 'components/Typography'
 import InputField from 'components/InputField'
+import * as Yup from 'yup'
 
-const TYPES = {
-  CPF: "999.999.999-999",
-  CNPJ: "99.999.999/9999-99",
-};
-
-const clear = (value) => value && value.replace(/[^0-9]/g, "");
-const getMask = (value) => value.length > 11 ? "CNPJ" : "CPF";
-
-const applyMask = (value, mask) => {
-  let result = "";
-
-  let inc = 0;
-  Array.from(value).forEach((letter, index) => {
-    if (!mask[index + inc].match(/[0-9]/)) {
-      result += mask[index + inc];
-      inc++;
-    }
-    result += letter;
-  });
-  return result;
-}
+const CreditFormSchema = Yup.object({
+  userDoc: Yup.number().required('Por favor digite seu documento').positive(),
+})
 
 export default function CreditForm() {
   const navigate = useNavigate()
-
-  const applyDocMask = (value) => {
-    if (value.userDoc === '') {
-      return ''
-    }
-    if (value && value.length <= 14) {
-      const mask = getMask(value);
-      return applyMask(value, TYPES[mask])
-    }
-
-    return value
-  }
-
   return (
     <Box
       sx={{
@@ -70,21 +40,16 @@ export default function CreditForm() {
         <Formik
           initialValues={{ userDoc: '' }}
           onSubmit={(values) => {
-            console.log('submit', values)
             navigate('/loadingscore')
           }}
+          validationSchema={CreditFormSchema}
         >
-          {({ values, setValues }) => (
+          {() => (
             <Form>
               <InputField
                 label="Digite seu CPF"
                 name="userDoc"
                 size="medium"
-                inputValue={applyDocMask(values)}
-                handleChange={(e) => {
-                  let value = clear(e.target.value)
-                  setValues(value)
-                }}
               />
               <Button
                   variant="contained"

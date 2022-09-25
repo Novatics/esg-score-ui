@@ -3,7 +3,6 @@ import Grid from 'components/Grid'
 import {
   categoryActions,
   categoryTypes,
-  scoreResult,
   scoreCommonData,
   getScoreClassification,
 } from 'util/categoryActions'
