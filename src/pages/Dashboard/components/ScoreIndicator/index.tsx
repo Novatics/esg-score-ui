@@ -7,22 +7,26 @@ import Typography from 'components/Typography'
 import { EsgScoreContext } from 'context'
 import { Container, Value } from './styles'
 
-const MAX_VALUE = 1000
-const HALF_CIRCLE = 50
+const MAX_VALUE = 10
+const HALF_CIRCLE = 5
 
 export default function ScoreIndicator() {
   const { scoreData } = useContext(EsgScoreContext)
   const scoreArray = Object.keys(scoreData)
   let finalScore = 0
   scoreArray.forEach(score => { finalScore = finalScore + scoreData[score] })
-  let score: any = (finalScore / 5) * 100;
-  score = score.toFixed(0)
+  let score: any = (finalScore / 5);
+  score = score.toFixed(1)
   const circleProgress = (score / MAX_VALUE) * HALF_CIRCLE
 
   const getTotalValue = (total: number) => {
-    if (total < 400) return 'Poor'
-    if (total < 600) return 'Good'
-    if (total < 1000) return 'Very Good'
+    if (total >= 0 && total < 1.4) return 'CCC'
+    if (total >= 1.4 && total < 2.9) return 'B'
+    if (total >= 2.9 && total < 4.3) return 'BB'
+    if (total >= 4.3 && total < 5.7) return 'BBB'
+    if (total >= 5.7 && total < 7.1) return 'A'
+    if (total >= 7.1 && total < 8.6) return 'AA'
+    if (total >= 8.6) return 'AAA'
   }
 
   return (
@@ -35,7 +39,7 @@ export default function ScoreIndicator() {
       <Box display="flex" justifyContent="center">
         <Container>
           <CircleProgress
-            percentage={circleProgress}
+            percentage={circleProgress * 10}
             strokeWidth={23}
             secondaryColor="#E6FAF8"
             strokeLinecap="round"
@@ -46,7 +50,7 @@ export default function ScoreIndicator() {
             <Box display="flex" justifyContent="center" alignItems="center" flexDirection="row">
               <ScoreValue>{score}</ScoreValue>
               <Typography variant="subtitle2" mt={2} color="neutral.low.light">
-                / 1000
+                / 10
               </Typography>
             </Box>
 
