@@ -2,7 +2,7 @@ import CriticalArea from './Areas/CriticalArea'
 import ImportantArea from './Areas/ImportantArea'
 import StrengthArea from './Areas/StrengthArea'
 
-const UserThreatsAreas = () => {
+const ScoreActions = () => {
   return (
     <>
       <CriticalArea />
@@ -12,4 +12,4 @@ const UserThreatsAreas = () => {
   )
 }
 
-export default UserThreatsAreas
+export default ScoreActions

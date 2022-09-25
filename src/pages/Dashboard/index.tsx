@@ -3,7 +3,7 @@ import Box from 'components/Box'
 import Typography from 'components/Typography'
 import Score from './components/ScoreIndicator'
 import ScoreInformation from './components/ScoreInformation'
-import UserThreatsAreas from './components/UserThreatsAreas'
+import ScoreActions from './components/ScoreActions'
 
 export default function Dashboard() {
   return (
@@ -18,7 +18,7 @@ export default function Dashboard() {
         </Grid>
       </Grid>
       <Box mt={4}>
-        <UserThreatsAreas />
+        <ScoreActions />
       </Box>
     </Box>
   )
