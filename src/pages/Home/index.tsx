@@ -2,6 +2,7 @@ import Footer from 'components/Footer'
 import Header from './Header'
 import StatisticsSection from './StatisticsSection'
 import StepperSection from './StepperSection'
+import InfoSection from './InfoSection'
 import OurServicesSection from './OurServicesSection'
 import TestimonialsSection from './TestimonialsSection'
 import TrustedPartnersSection from './TrustedPartnersSection'
@@ -12,7 +13,8 @@ const Home = () => {
       <Header />
       <StepperSection />
       <StatisticsSection />
-      <Footer /> 
+      <InfoSection />
+      <Footer />
       {/*
       <StatisticsSection />
       <OurServicesSection />

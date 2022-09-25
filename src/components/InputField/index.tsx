@@ -11,9 +11,21 @@ type TInputFieldProps = {
   sx?: SxProps
   size?: 'medium' | 'small' | undefined
   placeholder?: string
+  handleChange?: Function
+  inputValue?: string
 }
-const InputField = ({ label, name, sx, size, placeholder }: TInputFieldProps) => {
+const InputField = ({
+  label,
+  name,
+  sx,
+  size,
+  placeholder,
+  handleChange,
+  inputValue,
+}: TInputFieldProps) => {
   const [field, meta] = useField(name)
+  const onChange = handleChange ? handleChange : field.onChange
+  const value = inputValue || field.value
 
   const renderHelperText = () => {
     const [touched, error] = at(meta, 'touched', 'error')
@@ -33,9 +45,9 @@ const InputField = ({ label, name, sx, size, placeholder }: TInputFieldProps) =>
         type="text"
         helperText={renderHelperText()}
         error={!!(meta.touched && meta.error && true)}
-        onChange={field.onChange}
+        onChange={onChange as any}
         onBlur={field.onBlur}
-        value={field.value}
+        value={value}
         name={name}
         fullWidth
         sx={sx}
