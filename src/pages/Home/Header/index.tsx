@@ -1,16 +1,29 @@
+/* eslint-disable */
+import { useNavigate } from 'react-router-dom'
 import Typography from 'components/Typography';
-import Box from 'components/Box';
+import Button from 'components/Button'
+
 import { StyledBox, StyledContainer } from './styles';
 
 export default function Header() {
+  const navigate = useNavigate()
+
   return (
     <StyledBox>
       <StyledContainer>
-        <Box>
-          <Typography maxWidth={600} color="primary.dark" variant={'h4'}>
-            ESG SCORE
-          </Typography>
-        </Box>
+        <Typography maxWidth={600} color="primary.dark" variant="h4">
+          ESG SCORE
+        </Typography>
+        <Button
+          variant="contained"
+          sx={{
+            height: 50,
+            textTransform: 'none',
+          }}
+          onClick={() => navigate('/creditform')}
+        >
+          Calcule seu Score
+        </Button>
       </StyledContainer>
     </StyledBox>
   )

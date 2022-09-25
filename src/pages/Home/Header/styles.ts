@@ -13,7 +13,7 @@ export const StyledContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: ${({ theme }) => theme.spacing(3)}; // -> 24px;
+  margin-top: 24px;
   background: transparent;
 `
 

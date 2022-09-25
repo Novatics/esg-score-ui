@@ -7,7 +7,7 @@ import CardActions from 'components/CardActions'
 import CardContent from 'components/CardContent'
 import Typography from 'components/Typography'
 import { Container, BackgroundMap } from './styles'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 const STEP = 0.01
 export default function LoadingScore() {

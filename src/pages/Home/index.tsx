@@ -1,8 +1,8 @@
 import Footer from 'components/Footer'
 import Header from './Header'
-import OurServicesSection from './OurServicesSection'
 import StatisticsSection from './StatisticsSection'
 import StepperSection from './StepperSection'
+import OurServicesSection from './OurServicesSection'
 import TestimonialsSection from './TestimonialsSection'
 import TrustedPartnersSection from './TrustedPartnersSection'
 
