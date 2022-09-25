@@ -3,7 +3,7 @@ import { API_URL } from 'common/constants/env'
 import { categoryTypes } from 'util/categoryActions'
 
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: `https://cors-everywhere-me.herokuapp.com/${API_URL}`,
 })
 
 api.defaults.headers.common.Accept = 'application/json'
