@@ -1,14 +1,18 @@
+import { useContext } from 'react'
 import { CircleProgress } from 'react-gradient-progress'
 import Box from 'components/Box'
 import Card from 'components/Card'
 import ScoreValue from 'components/ScoreValue'
 import Typography from 'components/Typography'
+import { EsgScoreContext } from 'context'
 import { Container, Value } from './styles'
 
 const MAX_VALUE = 1000
 const HALF_CIRCLE = 50
 
 export default function ScoreIndicator() {
+  const { scoreData } = useContext(EsgScoreContext)
+  console.log('SCORE_DATA', scoreData)
   const score = 420;
   const circleProgress = (score / MAX_VALUE) * HALF_CIRCLE
 

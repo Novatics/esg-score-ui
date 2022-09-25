@@ -12,7 +12,7 @@ export default function Header() {
     <StyledBox>
       <StyledContainer>
         <Typography maxWidth={600} color="primary.dark" variant="h4">
-          ESG SCORE
+          Financial ESG Score
         </Typography>
         <Button
           variant="contained"

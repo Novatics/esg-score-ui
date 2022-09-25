@@ -1,16 +1,19 @@
 /* eslint-disable  */
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { CircleProgress } from 'react-gradient-progress'
+import { useNavigate } from 'react-router-dom'
 import Box from 'components/Box'
 import Card from 'components/Card'
 import CardActions from 'components/CardActions'
 import CardContent from 'components/CardContent'
 import Typography from 'components/Typography'
+import { getUserScore } from 'services'
+import { EsgScoreContext } from 'context'
 import { Container, BackgroundMap } from './styles'
-import { useNavigate } from 'react-router-dom'
 
 const STEP = 0.01
 export default function LoadingScore() {
+  const { userDoc, setScoreData, scoreData } = useContext(EsgScoreContext)
   const [scanPercentage, setScanPercentage] = useState(0);
   const navigate = useNavigate();
   let loadingInterval;
@@ -22,19 +25,19 @@ export default function LoadingScore() {
       setScanPercentage(
         Math.trunc(Math.round((Math.atan(currentProgress) / (Math.PI / 2)) * 100 * 1000) / 1000)
       )
-
-      if (currentProgress === 4) {
-        console.log('oi')
-      }
     }, 10)
+    getUserScore(userDoc, setScoreData)
     return () => {
       clearInterval(loadingInterval)
     }
   }, []);
 
   useEffect(() => {
-    setTimeout(() => navigate('/dashboard'), 2000)
-  }, [navigate])
+    if (scoreData) {
+      setTimeout(() => navigate('/dashboard'), 1500)
+    }
+  }, [scoreData])
+
 
   return (
     <Container>

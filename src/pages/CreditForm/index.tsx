@@ -1,18 +1,22 @@
 /* eslint-disable  */
+import { useContext } from 'react'
+import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 import { useNavigate } from 'react-router-dom'
 import Box from 'components/Box'
 import Button from 'components/Button'
 import Typography from 'components/Typography'
 import InputField from 'components/InputField'
-import * as Yup from 'yup'
+import { EsgScoreContext } from 'context'
 
 const CreditFormSchema = Yup.object({
   userDoc: Yup.number().required('Por favor digite seu documento').positive(),
 })
 
 export default function CreditForm() {
+  const { setUserDoc } = useContext(EsgScoreContext)
   const navigate = useNavigate()
+
   return (
     <Box
       sx={{
@@ -40,6 +44,7 @@ export default function CreditForm() {
         <Formik
           initialValues={{ userDoc: '' }}
           onSubmit={(values) => {
+            setUserDoc(values.userDoc)
             navigate('/loadingscore')
           }}
           validationSchema={CreditFormSchema}

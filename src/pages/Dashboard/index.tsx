@@ -1,11 +1,19 @@
+import { useContext } from 'react'
 import { Grid } from '@mui/material'
 import Box from 'components/Box'
 import Typography from 'components/Typography'
+import { EsgScoreContext } from 'context'
+import AppLoading from 'containers/App/AppLoading'
+
 import Score from './components/ScoreIndicator'
 import ScoreInformation from './components/ScoreInformation'
 import ScoreActions from './components/ScoreActions'
 
 export default function Dashboard() {
+  const { scoreData } = useContext(EsgScoreContext)
+
+  if (!scoreData) return <AppLoading />
+
   return (
     <Box mt={1}>
       <Typography variant="h4">Dashboard</Typography>

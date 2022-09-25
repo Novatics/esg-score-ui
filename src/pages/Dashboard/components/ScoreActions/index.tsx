@@ -1,24 +1,18 @@
+import { useContext } from 'react'
 import Box from 'components/Box'
 import Grid from 'components/Grid'
 import {
   categoryActions,
-  categoryTypes,
   scoreCommonData,
   getScoreClassification,
 } from 'util/categoryActions'
+import { EsgScoreContext } from 'context'
 
 import ActionItem from './ActionCard'
 
-const mockScoreResult = {
-  [categoryTypes.energy]: 1.2,
-  [categoryTypes.transport]: 2.2,
-  [categoryTypes.tax]: 7.2,
-  [categoryTypes.education]: 5.7,
-  [categoryTypes.health]: 4.2,
-};
-
 const ScoreActions = () => {
-  const resultsArray = Object.keys(mockScoreResult)
+  const { scoreData } = useContext(EsgScoreContext)
+  const resultsArray = Object.keys(scoreData)
 
   return (
     <Box sx={{ m: 3 }}>
@@ -30,7 +24,7 @@ const ScoreActions = () => {
         justifyContent: 'space-around',
         }} item xs={12} sm={12} md={12} lg={6}>
           {resultsArray.map(result => {
-            const scoreRange = getScoreClassification(mockScoreResult[result])
+            const scoreRange = getScoreClassification(scoreData[result])
             return (
               <ActionItem
                 recommendedAction={categoryActions[result]?.scoreResult[scoreRange]?.actionDescription}
