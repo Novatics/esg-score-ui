@@ -18,8 +18,8 @@ export default function StepperComponent() {
           <Grid item xs={12} sm={8} md={8} lg={8}>
             <Box sx={{ p: { xs: 2, sm: 0, md: 0 } }}>
               <Box>
-                <Typography maxWidth={600} color="primary.dark" variant="h2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                <Typography sx={{ textAlign: 'initial' }} maxWidth={600} color="primary.dark" variant="h3">
+                  Descubra como suas ações podem impactar na transformação de um mundo mais sustentável.
                 </Typography>
               </Box>
               <Typography
@@ -28,7 +28,8 @@ export default function StepperComponent() {
                 variant="h6"
                 color="primary.medium"
               >
-                Quisque volutpat, odio ac lacinia viverra, dui erat maximus nisl
+                Seu comportamento de consumo diz muito sobre seu impacto socioambiental.
+                Faça seu ESG Score e receba descontos e incentivos da nossa rede de parceiros.
               </Typography>
               <Stack
                 mt={2}

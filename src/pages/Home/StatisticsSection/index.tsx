@@ -16,108 +16,75 @@ export default function StatisticsSection() {
               justifyContent="center"
               sx={{ p: { xs: 2 } }}
             >
-              <Typography variant="h5" color="primary.dark">
-                Do you know how vulnerable your company is to cyber attacks?
+              <Typography mt={2} variant="body1" color="primary.medium">
+                O objetivo por trás de cada pessoa que recebe uma pontuação ESG individual é ajudar a recompensar ações que ajudarão a mover o mundo em direção à sustentabilidade.
               </Typography>
               <Typography mt={2} variant="body1" color="primary.medium">
-                Cyberattacks are a growing problem. Since the onset of the COVID-19 pandemic cyber
-                crime has quadrupled
+                Por enquanto, as pontuações ESG para indivíduos são usadas como uma ferramenta de rastreamento para as empresas monitorarem o comportamento. Para aqueles que já começaram a usar as pontuações ESG como parte de seu modelo de negócios, algumas pessoas com boas pontuações podem notar ofertas lucrativas, termos de empréstimo mais acessíveis e até pacotes direcionados projetados para recompensar comportamentos verdes ou sustentáveis.
               </Typography>
             </Box>
           </Grid>
           <Grid item xs={1} />
           <Grid item xs={12} sm={6} md={5}>
             <Grid container rowGap={2}>
-              <Grid
-                item
-                display="flex"
-                justifyContent="center"
-                alignContent="center"
-                xs={6}
-                sm={6}
-                md={6}
-              >
-                <StatisticsText
-                  title={93}
-                  text="of"
-                  description="corporate networks can be penetrated"
-                />
+              <Grid item xs={6} sm={6} md={6}>
+                <Box width="170px">
+                  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end' }}>
+                    <Typography variant="h4" color="primary.main">
+                      US$ 38 Bi
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <Typography variant="caption" color="neutral.low.medium">
+                      Ton CO2 despejadas na atmosfera todo ano
+                    </Typography>
+                  </Box>
+                </Box>
               </Grid>
-              <Grid
-                item
-                display="flex"
-                justifyContent="center"
-                alignContent="center"
-                xs={6}
-                sm={6}
-                md={6}
-              >
-                <StatisticsText
-                  title={90}
-                  text="of"
-                  description="cyber hacks are caused by human error"
-                />
+              <Grid item xs={6} sm={6} md={6}>
+                <Box width="170px">
+                  <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end' }}>
+                    <Typography variant="h4" color="primary.main">
+                      US$ 148 mi
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <Typography variant="caption" color="neutral.low.medium">
+                      Volume de VC investidos em iniciativas verdes
+                    </Typography>
+                  </Box>
+                </Box>
               </Grid>
               <Grid item xs={6} sm={6} md={6}>
                 <StatisticsText
-                  title={50}
-                  text="of"
-                  description="internet users have been hacked or breached"
+                  title={69}
+                  text="de"
+                  description="empresas possuem iniciativas de ESG"
                 />
               </Grid>
               <Grid item xs={6} sm={6} md={6}>
                 <Box width="150px">
                   <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end' }}>
                     <Typography variant="h4" color="primary.main">
-                      1
+                      3
                     </Typography>
                     <Typography
                       sx={{ marginLeft: 1, marginRight: 1 }}
                       variant="caption"
                       color="neutral.low.medium"
                     >
-                      out of
+                      em
                     </Typography>
                     <Typography variant="h4" color="primary.main">
-                      4
+                      5
                     </Typography>
                   </Box>
                   <Box>
                     <Typography variant="caption" color="neutral.low.medium">
-                      smartphones or computers have malware
+                      Optam por marcas que possuem iniciativas ESG
                     </Typography>
                   </Box>
                 </Box>
-              </Grid>
-              <Grid
-                item
-                display="flex"
-                justifyContent="center"
-                alignContent="center"
-                xs={6}
-                sm={6}
-                md={6}
-              >
-                <StatisticsText
-                  title={43}
-                  text="of"
-                  description="cyber attacks are aimed at small businesses"
-                />
-              </Grid>
-              <Grid
-                item
-                display="flex"
-                justifyContent="center"
-                alignContent="center"
-                xs={6}
-                sm={6}
-                md={6}
-              >
-                <StatisticsText
-                  title={50}
-                  text="of"
-                  description="cyber attacks on corporate networks since 2021"
-                />
               </Grid>
             </Grid>
           </Grid>

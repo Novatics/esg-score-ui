@@ -9,7 +9,7 @@ export default function Footer() {
         justifyContent: 'flex-start',
       }}
     >
-      <Typography variant="h3" color="#322F2F">
+      <Typography variant="h5" color="#322F2F">
         Novatics
       </Typography>
     </Container>
