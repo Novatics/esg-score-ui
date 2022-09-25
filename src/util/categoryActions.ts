@@ -1,6 +1,6 @@
-import { ReactComponent as CriticalIcon } from 'assets/Icons/Areas/Critical.svg'
-import { ReactComponent as ImportantIcon } from 'assets/Icons/Areas/Important.svg'
-import { ReactComponent as StrengthIcon } from 'assets/Icons/Areas/Strength.svg'
+import { ReactComponent as CriticalIcon } from 'assets/Icons/Critical.svg'
+import { ReactComponent as ImportantIcon } from 'assets/Icons/Important.svg'
+import { ReactComponent as StrengthIcon } from 'assets/Icons/Strength.svg'
 
 export enum categoryTypes {
   energy = 'energy',
