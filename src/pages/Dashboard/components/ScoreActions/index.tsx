@@ -3,10 +3,14 @@ import { ReactComponent as ImportantIcon } from 'assets/Icons/Areas/Important.sv
 import { ReactComponent as StrengthIcon } from 'assets/Icons/Areas/Strength.svg'
 import Box from 'components/Box'
 import Grid from 'components/Grid'
+import {
+  categoryActions,
+  categoryTypes,
+  scoreResult,
+  scoreCommonData,
+} from 'util/categoryActions'
+
 import ActionItem from './ActionCard'
-
-const recomendedText = 'Você tem um consumo energético acima da média, isso tem um impacto negativo para o mundo. Para melhorar seu score procure utilizar melhor a luz solar, tomar banhos mais frios ou mornos e reduza o consumo de energia.'
-
 
 const ScoreActions = () => {
   return (
@@ -19,34 +23,44 @@ const ScoreActions = () => {
         justifyContent: 'space-around',
         }} item xs={12} sm={12} md={12} lg={6}>
         <ActionItem
-          recommendedAction={recomendedText}
+          recommendedAction={categoryActions[categoryTypes.energy].scoreResult[scoreResult.low].actionDescription}
           Icon={CriticalIcon}
-          title={'Retardatário'}
-          iconColor={'#F2CCD4'}
+          title={scoreCommonData[scoreResult.low].actionTitle}
+          iconColor={scoreCommonData[scoreResult.low].iconColor}
+          textColor={scoreCommonData[scoreResult.low].textColor}
+          actionTitle={categoryActions[categoryTypes.energy].actionTitle}
         />
         <ActionItem
-          recommendedAction={recomendedText}
+          recommendedAction={categoryActions[categoryTypes.transport].scoreResult[scoreResult.medium].actionDescription}
           Icon={ImportantIcon}
-          title={'Retardatário'}
-          iconColor={'#FFD600'}
+          title={scoreCommonData[scoreResult.medium].actionTitle}
+          iconColor={scoreCommonData[scoreResult.medium].iconColor}
+          textColor={scoreCommonData[scoreResult.medium].textColor}
+          actionTitle={categoryActions[categoryTypes.transport].actionTitle}
         />
         <ActionItem
-          recommendedAction={recomendedText}
+         recommendedAction={categoryActions[categoryTypes.tax].scoreResult[scoreResult.high].actionDescription}
           Icon={StrengthIcon}
-          title={'Retardatário'}
-          iconColor={'#009900'}
+          title={scoreCommonData[scoreResult.high].actionTitle}
+          iconColor={scoreCommonData[scoreResult.high].iconColor}
+          textColor={scoreCommonData[scoreResult.high].textColor}
+          actionTitle={categoryActions[categoryTypes.tax].actionTitle}
         />
         <ActionItem
-          recommendedAction={recomendedText}
+          recommendedAction={categoryActions[categoryTypes.education].scoreResult[scoreResult.low].actionDescription}
           Icon={CriticalIcon}
-          title={'Retardatário'}
-          iconColor={'#F2CCD4'}
+          title={scoreCommonData[scoreResult.low].actionTitle}
+          iconColor={scoreCommonData[scoreResult.low].iconColor}
+          textColor={scoreCommonData[scoreResult.low].textColor}
+          actionTitle={categoryActions[categoryTypes.education].actionTitle}
         />
         <ActionItem
-          recommendedAction={recomendedText}
+          recommendedAction={categoryActions[categoryTypes.health].scoreResult[scoreResult.low].actionDescription}
           Icon={CriticalIcon}
-          title={'Retardatário'}
-          iconColor={'#F2CCD4'}
+          title={scoreCommonData[scoreResult.low].actionTitle}
+          iconColor={scoreCommonData[scoreResult.low].iconColor}
+          textColor={scoreCommonData[scoreResult.low].textColor}
+          actionTitle={categoryActions[categoryTypes.health].actionTitle}
         />
       </Grid>
     </Box>

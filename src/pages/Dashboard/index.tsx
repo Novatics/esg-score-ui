@@ -7,7 +7,7 @@ import ScoreActions from './components/ScoreActions'
 
 export default function Dashboard() {
   return (
-    <Box mt={1} p={2}>
+    <Box mt={1}>
       <Typography variant="h4">Dashboard</Typography>
       <Grid mt={2} container spacing={2}>
         <Grid item xs={12} sm={12} md={4} lg={4}>

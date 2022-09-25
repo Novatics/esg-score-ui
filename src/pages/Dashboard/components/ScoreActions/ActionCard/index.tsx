@@ -1,8 +1,5 @@
-import { useState } from 'react'
 import Box from 'components/Box'
-import Button from 'components/Button'
 import { CardBordered } from 'components/Card'
-import Modal from 'components/Modal'
 import Typography from 'components/Typography'
 
 interface ICriticalCardProps {
@@ -14,24 +11,28 @@ interface ICriticalCardProps {
   >
   recommendedAction: string
   iconColor: string
+  actionTitle: string
+  textColor: string
 }
 const ActionItem = ({
   title,
   Icon,
   recommendedAction,
   iconColor,
+  actionTitle,
+  textColor,
 }: ICriticalCardProps) => {
   return (
-    <CardBordered sx={{ padding: 2, maxWidth: '500px', mb: 4 }}>
+    <CardBordered sx={{ padding: 2, maxWidth: '500px', mb: 4, minHeight: '300px' }}>
       <Box display="flex" alignItems="flex-start">
         <Box>
           <Icon width="25px" height="25px" fill={iconColor} />
         </Box>
         <Box ml={2}>
-          <Typography variant="h6" color="#98001F">
-            Energia
+          <Typography variant="h6" color={textColor}>
+            {actionTitle}
           </Typography>
-          <Typography mb={2} fontSize="14px">
+          <Typography mb={2} fontSize="14px" color={textColor}>
             {title}
           </Typography>
           <Typography variant="body1" fontWeight="500">
