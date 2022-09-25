@@ -12,15 +12,17 @@ const HALF_CIRCLE = 50
 
 export default function ScoreIndicator() {
   const { scoreData } = useContext(EsgScoreContext)
-  console.log('SCORE_DATA', scoreData)
-  const score = 420;
+  const scoreArray = Object.keys(scoreData)
+  let finalScore = 0
+  scoreArray.forEach(score => { finalScore = finalScore + scoreData[score] })
+  let score: any = (finalScore / 5) * 100;
+  score = score.toFixed(0)
   const circleProgress = (score / MAX_VALUE) * HALF_CIRCLE
 
   const getTotalValue = (total: number) => {
     if (total < 400) return 'Poor'
     if (total < 600) return 'Good'
-    if (total < 800) return 'Very Good'
-    return 'Excellent'
+    if (total < 1000) return 'Very Good'
   }
 
   return (

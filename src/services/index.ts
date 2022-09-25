@@ -8,8 +8,6 @@ const api = axios.create({
 
 api.defaults.headers.common.Accept = 'application/json'
 api.defaults.headers.common['Content-Type'] = 'application/json'
-api.defaults.headers.common.credentials = 'include'
-api.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 
 const TYPES = {
   CPF: "999.999.999-999",
@@ -38,7 +36,8 @@ export const getUserScore = async (userDoc: string, setScoreData: Function) => {
     if (response) {
       const responseData = response.data
       const data = {
-        ...responseData,
+        [categoryTypes.energy]: responseData['energy'],
+        [categoryTypes.transport]: responseData['transport'],
         [categoryTypes.tax]: 7.2,
         [categoryTypes.education]: 5.7,
         [categoryTypes.health]: 4.2,
