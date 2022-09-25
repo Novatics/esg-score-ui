@@ -1,1 +1,1 @@
-export const API_URL = 'https://pokeapi.co/api/v2'
+export const API_URL = 'http://esgscoreapienv2-env.eba-hnhaarjn.us-east-1.elasticbeanstalk.com'

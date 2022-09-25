@@ -9,22 +9,41 @@ const api = axios.create({
 api.defaults.headers.common.Accept = 'application/json'
 api.defaults.headers.common['Content-Type'] = 'application/json'
 api.defaults.headers.common.credentials = 'include'
+api.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 
-const mockScoreResult = {
-  [categoryTypes.energy]: 1.2,
-  [categoryTypes.transport]: 2.2,
-  [categoryTypes.tax]: 7.2,
-  [categoryTypes.education]: 5.7,
-  [categoryTypes.health]: 4.2,
+const TYPES = {
+  CPF: "999.999.999-999",
+  CNPJ: "99.999.999/9999-99",
 };
 
+const applyMask = (value, mask = TYPES.CPF) => {
+  if (value.length !== 11) return value;
+  let result = "";
+
+  let inc = 0;
+  Array.from(value).forEach((letter, index) => {
+    if (!mask[index + inc].match(/[0-9]/)) {
+      result += mask[index + inc];
+      inc++;
+    }
+    result += letter;
+  });
+  return result;
+}
+
 export const getUserScore = async (userDoc: string, setScoreData: Function) => {
-  console.log('USER_DOC: ', userDoc)
-  if (userDoc.length > 0) { // change to 0
-    const response = await api.get('/pokemon')
-    console.log('Resposta: ', response);
+  console.log('USER_DOC: ', applyMask(userDoc))
+  if (userDoc.length > 0) {
+    const response = await api.get(`/scores/${applyMask(userDoc)}`)
     if (response) {
-      setScoreData(mockScoreResult)
+      const responseData = response.data
+      const data = {
+        ...responseData,
+        [categoryTypes.tax]: 7.2,
+        [categoryTypes.education]: 5.7,
+        [categoryTypes.health]: 4.2,
+      }
+      setScoreData(data)
     }
   }
 }
