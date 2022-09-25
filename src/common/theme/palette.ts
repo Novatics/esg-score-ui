@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable */
 declare module '@mui/material/styles/createPalette' {
   interface TypeBackground {
     darker: string

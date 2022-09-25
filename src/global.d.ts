@@ -1,8 +1,4 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable @typescript-eslint/naming-convention */
-/* eslint-disable @typescript-eslint/no-empty-interface */
-
+/* eslint-disable */
 import { TCustomThemeProps } from './common/theme/type'
 
 declare module 'react-score-indicator'
