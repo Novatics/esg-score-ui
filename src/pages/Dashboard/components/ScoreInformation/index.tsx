@@ -71,7 +71,8 @@ const ScoreInformation = () => {
                   md: 2,
                   lg: 0,
                 },
-                height: '250px'
+                height: '250px',
+                minWidth: '250px'
               }}
               key={cardInfo.id}
             >
