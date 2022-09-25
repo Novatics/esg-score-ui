@@ -1,3 +1,6 @@
+import { ReactComponent as CriticalIcon } from 'assets/Icons/Areas/Critical.svg'
+import { ReactComponent as ImportantIcon } from 'assets/Icons/Areas/Important.svg'
+import { ReactComponent as StrengthIcon } from 'assets/Icons/Areas/Strength.svg'
 
 export enum categoryTypes {
   energy = 'energy',
@@ -13,21 +16,40 @@ export enum scoreResult {
   high = 'high',
 }
 
+export const getScoreClassification = (score: number) => {
+  if (score >= 0 && score < 2.9) {
+    return scoreResult.low
+  }
+
+  if (score >= 2.9 && score < 7.1) {
+    return scoreResult.medium
+  }
+
+  if (score >= 7.1 && score <= 10) {
+    return scoreResult.high
+  }
+
+  return scoreResult.low
+}
+
 export const scoreCommonData = {
   [scoreResult.low]: {
     actionTitle: 'Retardatário',
     textColor: '#F2CCD4',
     iconColor: '#F2CCD4',
+    iconType: CriticalIcon,
   },
   [scoreResult.medium]: {
     actionTitle: 'Médio',
     textColor: '#FFD600',
     iconColor: '#FFD600',
+    iconType: ImportantIcon,
   },
   [scoreResult.high]: {
     actionTitle: 'Líder',
     textColor: '#009900',
     iconColor: '#009900',
+    iconType: StrengthIcon,
   },
 }
 

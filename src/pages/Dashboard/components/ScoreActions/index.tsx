@@ -1,6 +1,3 @@
-import { ReactComponent as CriticalIcon } from 'assets/Icons/Areas/Critical.svg'
-import { ReactComponent as ImportantIcon } from 'assets/Icons/Areas/Important.svg'
-import { ReactComponent as StrengthIcon } from 'assets/Icons/Areas/Strength.svg'
 import Box from 'components/Box'
 import Grid from 'components/Grid'
 import {
@@ -8,11 +5,22 @@ import {
   categoryTypes,
   scoreResult,
   scoreCommonData,
+  getScoreClassification,
 } from 'util/categoryActions'
 
 import ActionItem from './ActionCard'
 
+const mockScoreResult = {
+  [categoryTypes.energy]: 1.2,
+  [categoryTypes.transport]: 2.2,
+  [categoryTypes.tax]: 7.2,
+  [categoryTypes.education]: 5.7,
+  [categoryTypes.health]: 4.2,
+};
+
 const ScoreActions = () => {
+  const resultsArray = Object.keys(mockScoreResult)
+
   return (
     <Box sx={{ m: 3 }}>
       <Grid sx={{
@@ -22,46 +30,19 @@ const ScoreActions = () => {
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         }} item xs={12} sm={12} md={12} lg={6}>
-        <ActionItem
-          recommendedAction={categoryActions[categoryTypes.energy].scoreResult[scoreResult.low].actionDescription}
-          Icon={CriticalIcon}
-          title={scoreCommonData[scoreResult.low].actionTitle}
-          iconColor={scoreCommonData[scoreResult.low].iconColor}
-          textColor={scoreCommonData[scoreResult.low].textColor}
-          actionTitle={categoryActions[categoryTypes.energy].actionTitle}
-        />
-        <ActionItem
-          recommendedAction={categoryActions[categoryTypes.transport].scoreResult[scoreResult.medium].actionDescription}
-          Icon={ImportantIcon}
-          title={scoreCommonData[scoreResult.medium].actionTitle}
-          iconColor={scoreCommonData[scoreResult.medium].iconColor}
-          textColor={scoreCommonData[scoreResult.medium].textColor}
-          actionTitle={categoryActions[categoryTypes.transport].actionTitle}
-        />
-        <ActionItem
-         recommendedAction={categoryActions[categoryTypes.tax].scoreResult[scoreResult.high].actionDescription}
-          Icon={StrengthIcon}
-          title={scoreCommonData[scoreResult.high].actionTitle}
-          iconColor={scoreCommonData[scoreResult.high].iconColor}
-          textColor={scoreCommonData[scoreResult.high].textColor}
-          actionTitle={categoryActions[categoryTypes.tax].actionTitle}
-        />
-        <ActionItem
-          recommendedAction={categoryActions[categoryTypes.education].scoreResult[scoreResult.low].actionDescription}
-          Icon={CriticalIcon}
-          title={scoreCommonData[scoreResult.low].actionTitle}
-          iconColor={scoreCommonData[scoreResult.low].iconColor}
-          textColor={scoreCommonData[scoreResult.low].textColor}
-          actionTitle={categoryActions[categoryTypes.education].actionTitle}
-        />
-        <ActionItem
-          recommendedAction={categoryActions[categoryTypes.health].scoreResult[scoreResult.low].actionDescription}
-          Icon={CriticalIcon}
-          title={scoreCommonData[scoreResult.low].actionTitle}
-          iconColor={scoreCommonData[scoreResult.low].iconColor}
-          textColor={scoreCommonData[scoreResult.low].textColor}
-          actionTitle={categoryActions[categoryTypes.health].actionTitle}
-        />
+          {resultsArray.map(result => {
+            const scoreRange = getScoreClassification(mockScoreResult[result])
+            return (
+              <ActionItem
+                recommendedAction={categoryActions[result]?.scoreResult[scoreRange]?.actionDescription}
+                Icon={scoreCommonData[scoreRange]?.iconType}
+                title={scoreCommonData[scoreRange]?.actionTitle}
+                iconColor={scoreCommonData[scoreRange]?.iconColor}
+                textColor={scoreCommonData[scoreRange]?.textColor}
+                actionTitle={categoryActions[result]?.actionTitle}
+              />
+            )
+          })}
       </Grid>
     </Box>
   )
