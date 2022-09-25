@@ -5,59 +5,58 @@ import Typography from 'components/Typography'
 
 const scoreData = [
   {
-    title: 'Poor',
-    minValue: 0,
-    maxValue: 399,
+    id: 1,
+    title: 'Retardatária',
+    scoreRange: [{ min: 0.0, max: 1.4, grade: 'CCC' }, { min: 1.4, max: 2.9, grade: 'B' }],
+    backgroundColor: '#fff2f4',
+    mainTextColor: '#ff3232',
     description:
-      '0 - 399: ellentesque cursus, risus eu tempus feugiat, leo sem vehicula ante, ac maximus tellus metus ut mauris. Fusce ultricies, enim a congue blandit',
+      'Apresenta comportamento com impacto socioambiental negativo e baixa preocupação com relação ao seu papel como agente de transformação do meio ambiente',
   },
   {
-    title: 'Good',
-    minValue: 400,
-    maxValue: 599,
+    id: 2,
+    title: 'Médio',
+    scoreRange: [
+      { min: 2.9, max: 4.3, grade: 'BB' },
+      { min: 4.3, max: 5.7, grade: 'BBB' },
+      { min: 5.7, max: 7.1, grade: 'A' },
+    ],
+    backgroundColor: '#FFFFF0',
+    mainTextColor: '#FFC000',
     description:
-      '400 - 599: ellentesque cursus, risus eu tempus feugiat, leo sem vehicula ante, ac maximus tellus metus ut mauris. Fusce ultricies, enim a congue blandit',
+      'Sensibilizado ou em processo de educação com relação a questões socioambientais, em processo de adoção de boas práticas de consumo e comportamento para uma vivência mais sustentável ',
   },
   {
-    title: 'Very Good',
-    minValue: 600,
-    maxValue: 799,
+    id: 3,
+    title: 'Líder',
+    scoreRange: [{ min: 7.1, max: 8.6, grade: 'AA' }, { min: 8.6, max: 10, grade: 'AAA' }],
+    backgroundColor: '#FFFFF0',
+    mainTextColor: '#009900',
     description:
-      '600 - 799: Suspendisse dapibus sem sit amet mauris maximus, et sagittis augue porta. Ut dapibus magna nisi, varius auctor enim vestibulum nec.',
-  },
-  {
-    title: 'Excellent',
-    minValue: 800,
-    maxValue: 1000,
-    description:
-      '800 - 1000: Suspendisse dapibus sem sit amet mauris maximus, et sagittis augue porta. Ut dapibus magna nisi, varius auctor enim vestibulum nec.',
+      'Parabéns, você tem um comportamento exemplar quando o assunto é meio ambiente. Ajude a transformar o mundo em um lugar mais sustentável convidando mais pessoas a acompanharem seu personal ESG score',
   },
 ]
 
 const ScoreInformation = () => {
-  const score = 20;
-
-  const isCardSelected = (scoreNumber: number, cardInfo) => {
-    if (scoreNumber >= cardInfo.minValue && scoreNumber <= cardInfo.maxValue) return true
-    return false
-  }
-
   return (
     <Card
       sx={{
-        height: {
-          xs: 'auto',
-          sm: 'auto',
-          md: 'auto',
-          lg: 'auto',
-        },
+        height: '100%',
+        minHeight: '362px',
       }}
     >
-      <Box p={4}>
+      <Box p={3}>
         <Typography mb={2.5} variant="h6" fontWeight="400" color="primary.dark">
-          What the score means?
+          O que isso significa ?
         </Typography>
-        <Grid columnSpacing={2} container sx={{ display: 'flex' }}>
+        <Grid columnSpacing={1} container 
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            height: '100%',
+            alignItems: 'center',
+          }}
+          >
           {scoreData.map(cardInfo => (
             <Grid
               item
@@ -72,52 +71,60 @@ const ScoreInformation = () => {
                   md: 2,
                   lg: 0,
                 },
+                height: '250px'
               }}
-              key={cardInfo.title}
+              key={cardInfo.id}
             >
               <Box
                 sx={{
                   border: '1px solid',
-                  borderColor: isCardSelected(score, cardInfo)
-                    ? 'primary.main'
-                    : 'neutral.high.medium',
+                  borderColor: 'neutral.high.medium',
                   borderRadius: 1,
                   display: 'flex',
-                  backgroundColor: theme =>
-                    isCardSelected(score, cardInfo) ? theme.palette.background.lightBlue : '',
                   flexDirection: 'column',
                   height: '100%',
                   boxShadow: theme => theme.shadows[1],
+                  textAlign: 'center',
+                  backgroundColor: `${cardInfo.backgroundColor}`,
                 }}
               >
                 <Box
                   sx={{
+                    padding: '10px 5px 5px 5px',
                     display: 'flex',
-                    justifyContent: 'center',
-                    borderRadius: '1 0 0 0',
-                    backgroundColor: isCardSelected(score, cardInfo)
-                      ? 'primary.main'
-                      : 'neutral.high.medium',
+                    flexDirection: 'row',
+                    justifyContent: 'space-evenly',
                   }}
-                  py={1}
-                  px={4}
+                >
+                  {cardInfo?.scoreRange?.map(score => (
+                    <Box
+                      sx={{
+                        border: `1px solid ${cardInfo.mainTextColor}`,
+                        padding: '5px',
+                        backgroundColor: `${cardInfo.mainTextColor}`,
+                        width: '30%',
+                        borderRadius: '5px',
+                      }}
+                    >
+                      <Typography variant='body2' color='#ffffff'>
+                        {score.min.toFixed(1)} -  {score.max}
+                      </Typography>
+                      <Typography variant='body1' fontWeight={500} color='#ffffff'>
+                        {score.grade}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+                <Box sx={{
+                  p: '10px 12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  height: '100%',
+                  }}
                 >
                   <Typography
-                    color={
-                      isCardSelected(score, cardInfo) ? 'primary.contrastText' : 'neutral.low.dark'
-                    }
-                    fontWeight={700}
-                    variant="body1"
-                    sx={{ userSelect: 'none' }}
-                  >
-                    {cardInfo.title}
-                  </Typography>
-                </Box>
-
-                <Box sx={{ p: '10px 12px' }}>
-                  <Typography
                     variant="caption"
-                    color={isCardSelected(score, cardInfo) ? 'primary.main' : 'neutral.low.medium'}
+                    color={'neutral.low.medium'}
                     sx={{ userSelect: 'none' }}
                   >
                     {cardInfo.description}
