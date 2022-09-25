@@ -17,13 +17,3 @@ export const Container = styled('div')`
     padding: ${({ theme }) => theme.spacing(3)} ${({ theme }) => theme.spacing(3)};
   }
 `
-export const ProtexxaLogo = styled('div')`
-  left: 10%;
-  position: absolute;
-
-  ${props => props.theme.breakpoints.down('md')} {
-    left: 0;
-    position: initial;
-    margin-top: ${({ theme }) => theme.spacing(1)};
-  }
-`
