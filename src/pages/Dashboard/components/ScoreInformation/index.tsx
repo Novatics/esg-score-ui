@@ -106,7 +106,7 @@ const ScoreInformation = () => {
                         borderRadius: '5px',
                       }}
                     >
-                      <Typography variant='body2' color='#ffffff'>
+                      <Typography sx={{ fontSize: '10px' }} color='#ffffff'>
                         {score.min.toFixed(1)} -  {score.max}
                       </Typography>
                       <Typography variant='body1' fontWeight={500} color='#ffffff'>
