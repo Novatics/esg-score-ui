@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - aws codeartifact login --tool npm --repository novatics-test --domain novatics --domain-owner 957288644136 --region us-east-1
+        - aws codeartifact login --tool npm --repository novatics-test --domain novatics
         - yarn install --frozen-lockfile
     build:
       commands:
